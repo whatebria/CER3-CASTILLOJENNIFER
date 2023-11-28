@@ -3,7 +3,7 @@
 {% if request.user.groups.all.0.name == "Profesor" %}
 <div class="row row-cols-1 row-cols-md-3 g-4 cards m-0">
     {% for evento in eventosProfesor %}
-        {% if evento.fecha_inicio >= evento.fecha_actual or evento.fecha_termino >= evento.fecha_actual%}
+        {% if not evento.fecha_termino <= fecha_actual %}
             <div class="col rounded-5">
                 <div class="card h-100 rounded-5">
                     <div class="card-body">
@@ -22,7 +22,7 @@
 {% elif request.user.groups.all.0.name == "Jefe de Carrera" %}
 <div class="row row-cols-1 row-cols-md-3 g-4 cards m-0">
     {% for evento in eventosJefe %}
-        {% if evento.fecha_inicio >= evento.fecha_actual or evento.fecha_termino >= evento.fecha_actual%}
+        {% if not evento.fecha_termino <= fecha_actual %}
             <div class="col rounded-5">
                 <div class="card h-100 rounded-5">
                     <div class="card-body">

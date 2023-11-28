@@ -25,7 +25,7 @@ urlpatterns = [
     path('', views.homePublico, name='home'),
     path('filtroSegmento/', views.filtrarSegmento, name='filtrarSegmento'),
     path('filtroTipo/', views.filtrarTipo, name='filtrarTipo'),
-    path('api/', include('api.urls'), name='api'),
+    path('api/', include('api.urls', namespace='api')),
     path('docs/', include_docs_urls(title='Documentacion')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
