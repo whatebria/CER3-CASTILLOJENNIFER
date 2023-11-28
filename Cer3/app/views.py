@@ -20,7 +20,6 @@ def homePublico(request):
         'año': año,
         'eventosProfesor': eventosProfesor,
         'eventosJefe': eventosJefe,
-        'Tipos': tipo,
         'fecha_actual': fecha_actual,
     }
     return render(request, 'app/home.html', data)
@@ -29,6 +28,7 @@ def homePublico(request):
 def filtrarSegmento(request):
     title = 'FiltrarSegmento'
     fecha_actual = date.today()
+    tipo = Evento.TIPO_CHOICES
 
 
     segmento_seleccionado = request.GET.get('filtroPorSegmento')
@@ -42,6 +42,8 @@ def filtrarSegmento(request):
         'Eventos': eventos,
         'Segmento': Segmento.objects.all(),
         'año': año,
+        'Tipos': tipo,
+
         'fecha_actual': fecha_actual,
     }
 
@@ -77,7 +79,8 @@ def filtrarTipo(request):
         'Eventos': eventos,
         'Segmento': Segmento.objects.all(),
         'año': año,
-        'Tipos': tipo,
+        'Tipos': tipo
+        ,
         'fecha_actual': fecha_actual,
     }
     return render(request, 'app/home.html', data)
