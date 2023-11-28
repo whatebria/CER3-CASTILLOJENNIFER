@@ -21,6 +21,7 @@ def homePublico(request):
         'eventosProfesor': eventosProfesor,
         'eventosJefe': eventosJefe,
         'fecha_actual': fecha_actual,
+        'Tipos': tipo,
     }
     return render(request, 'app/home.html', data)
 
@@ -43,7 +44,6 @@ def filtrarSegmento(request):
         'Segmento': Segmento.objects.all(),
         'año': año,
         'Tipos': tipo,
-
         'fecha_actual': fecha_actual,
     }
 
@@ -80,8 +80,7 @@ def filtrarTipo(request):
         'Eventos': eventos,
         'Segmento': Segmento.objects.all(),
         'año': año,
-        'Tipos': tipo
-        ,
+        'Tipos': tipo,
         'fecha_actual': fecha_actual,
     }
     return render(request, 'app/home.html', data)
