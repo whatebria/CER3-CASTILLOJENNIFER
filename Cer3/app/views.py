@@ -50,12 +50,13 @@ def filtrarSegmento(request):
     return render(request, 'app/home.html', data)
 
 def filtrarTipo(request):
+    tipo = Evento.TIPO_CHOICES
+
 
     title = 'FiltrarTipo'
     flag = False
     tipo = Evento.TIPO_CHOICES
     fecha_actual = date.today()
-
 
     
     tipo_seleccionado = request.GET.get('tipo')
