@@ -1,0 +1,44 @@
+{% block content %}
+
+{% if request.user.groups.all.0.name == "Profesor" %}
+<div class="row row-cols-1 row-cols-md-3 g-4 cards m-0">
+    {% for evento in eventosProfesor %}
+        {% if evento.fecha_inicio >= evento.fecha_actual or evento.fecha_termino >= evento.fecha_actual%}
+            <div class="col rounded-5">
+                <div class="card text-bg-light mb-3">
+                    <div class="card-body rounded-5">
+                        <h5 class="card-title">{{ evento.fecha_inicio }}</h5>
+                        <h6 class="card-title">{{ evento.segmento.all.0 }}</h6>
+                        <p class="card-text">{{ evento.titulo }}</p>
+
+                        <p class="card-text">{{ evento.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% elif request.user.groups.all.0.name == "Jefe de Carrera" %}
+<div class="row row-cols-1 row-cols-md-3 g-4 cards m-0">
+    {% for evento in eventosJefe %}
+        {% if evento.fecha_inicio >= evento.fecha_actual or evento.fecha_termino >= evento.fecha_actual%}
+            <div class="col rounded-5">
+                <div class="card h-100 rounded-5">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ evento.fecha_inicio }}</h5>
+                        <h6 class="card-title">{{ evento.segmento.all.0 }}</h6>
+                        <p class="card-text">{{ evento.titulo }}</p>
+
+                        <p class="card-text">{{ evento.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+
+{% include 'app/publico.html' %}
+
+{% endblock %}

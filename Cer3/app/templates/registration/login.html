@@ -1,0 +1,45 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+{% load static %}
+  {% if form.errors %}
+    <p>Nombre de usuario y contraseña no coinciden. Inténtelo de nuevo.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Su cuenta no tiene acceso a esta página. 
+      Inicie sesión con una cuenta que tenga acceso.</p>
+    {% else %}
+      <p>Inicie sesión para ver la página.</p>
+    {% endif %}
+  {% endif %}
+  
+  <div class="col ola d-flex justify-content-center login">
+    <img src="{% static 'app\img\perfil-del-usuario.png' %}" width="250" height="200">
+  </div>
+  <div class="col form-group p-5 ola">
+    <form id="forms" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="col-12 d-flex justify-content-center">
+          <h1>Inicio de sesion</h1>
+        </div>
+        <table class="d-flex justify-content-center ">
+          <tr>
+            <td class=".col-form-label-lg">{{ form.username.label_tag }}</td>
+            <td class="form-control-lg">{{ form.username }}</td>
+          </tr>
+          <tr>
+            <td class=".col-form-label-lg">{{ form.password.label_tag }}</td>
+            <td class="form-control-lg">{{ form.password }}</td>
+          </tr>
+        </table>
+        <div class="col d-flex justify-content-center" >
+            <input type="submit" value="login">
+            <input type="hidden" name="next" value="{{ next }}">
+        </div>
+      </form>
+  </div>
+  
+{% endblock %}

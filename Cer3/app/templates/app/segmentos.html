@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form method="get" action = "{% url 'segmentos' %}">
+                <label >Segmento</label>
+                <select class="form-select" name="filtroPorSeg" onchange="this.form.submit()">
+                    <option value="0" {% if segmento_seleccionado == '0' %} selected {% endif %}>Todos</option>
+                    {% for segmento in Segmentos %}
+                    <option value="{{ segmento.id }}" {% if segmento_seleccionado == 'segmento.id' %} selected {% endif %}>{{ segmento.nombre }}</option>
+                    {% endfor %}
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

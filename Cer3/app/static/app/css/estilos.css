@@ -1,0 +1,70 @@
+.nav{
+    background-color: #004b85;
+    color: white;
+}
+
+.card{
+    padding: 10%;
+    background-color: #004b85;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#foot{
+    background-color: #f7a300;
+    box-sizing: border-box;
+    height:160px;
+}
+.foo{
+    margin-top: 2%;
+}
+
+.img{
+    background-image: url('https://comercial.usm.cl/wp-content/uploads/2023/07/card-dac.jpg');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+
+#imagen{
+    height: 400px;
+    margin-top: 30%;
+}
+
+.textimg{
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.tabletxt{
+    background-color: rgb(29, 29, 29);
+    color: white;
+    padding-right: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.filtro{
+    background-color: #f7a300;
+    margin-top: 2%;
+}
+
+#forms{
+    background-color: #f7a300;
+    box-sizing: border-box;
+}
+
+.ola{
+    background-color: #f7a300;
+    
+}
+.login{
+    padding-top: 10%;
+    padding-bottom: 3%;
+}
+
+.txtnav{
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: 2%;
+}

@@ -1,0 +1,65 @@
+{% block content %}
+
+<div class="row p-0 m-0">
+  <div class="col filtro">
+    <form for="developer" class="p-3" action="{% url 'filtrarSegmento' %}" method="GET">
+      {% csrf_token %}
+        <select class="form-select" name="filtroPorSegmento" onchange="this.form.submit()">
+          <option value="0" {% if segmento_seleccionado == 0 %} selected {% endif %}>
+            Segmento</option>
+          {% for segmento in Segmento.all %}
+          <option value="{{ segmento.id }}" 
+          {% if segmento_seleccionado == segmento.id %} 
+          selected 
+          {% endif %}>
+          {{ segmento }}
+        </option>
+          {% endfor %}
+        </select>
+      </form>
+    </div>
+  <div class="col filtro">
+    <form class="p-3" action="{% url 'filtrarTipo' %}" method="get">
+      {% csrf_token %}
+      <select class="form-select" name="tipo" onchange="this.form.submit()">
+        <option value="all" {% if tipo_seleccionado == all %} selected {% endif %}>
+          Tipo</option>
+        {% for evento in Eventos %}
+        <option value="{{ evento.get_tipo_display }}" 
+          {% if tipo_seleccionado == evento.get_tipo_display %} selected {% endif %}>{{ evento.get_tipo_display }}</option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+</div>
+<div class="col p-0 ">
+  <table class="table caption-top table-responsive table-hover">
+    <caption class="text-center tabletxt">Actividades</caption>
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Hito</th>
+        <th scope="col">Fecha de inicio</th>
+        <th scope="col">Fecha de termino</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Segmento</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for evento in Eventos %} 
+        {% if evento.fecha_inicio >= evento.fecha_actual or evento.fecha_termino >= evento.fecha_actual%}
+          <tr>
+            <th scope="row" >{{ evento.titulo }}</th>
+            <td>{{ evento.fecha_inicio }}</td>
+            <td>{{ evento.fecha_termino }}</td>
+            <td>{{ evento.get_tipo_display }}</td>
+            <td>{{ evento.segmento.all.0 }}</td>
+          </tr>
+          {% endif %}
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}

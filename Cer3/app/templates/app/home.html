@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+{% if request.user.groups.all.0.name == "Profesor" %}
+    {% include 'app/personalizado.html' %}
+{% elif request.user.groups.all.0.name == "Jefe de Carrera" %}
+    {% include 'app/personalizado.html' %}
+{% else %}
+    {% include 'app/publico.html' %}
+{% endif %}
+
+{% endblock %}
