@@ -2,7 +2,7 @@
     background-color: #004b85;
     color: white;
 }
-
+ 
 .card{
     padding: 10%;
     background-color: #004b85;
@@ -37,11 +37,12 @@
 }
 
 .tabletxt{
-    background-color: rgb(29, 29, 29);
-    color: white;
+    background-color: #f7a300;
+    box-sizing: border-box;
     padding-right: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .filtro{
@@ -67,4 +68,7 @@
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding-left: 2%;
+}
+.table{
+    color: #004b85;
 }

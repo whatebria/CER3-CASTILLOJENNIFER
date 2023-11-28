@@ -5,8 +5,8 @@
     {% for evento in eventosProfesor %}
         {% if evento.fecha_inicio >= evento.fecha_actual or evento.fecha_termino >= evento.fecha_actual%}
             <div class="col rounded-5">
-                <div class="card text-bg-light mb-3">
-                    <div class="card-body rounded-5">
+                <div class="card h-100 rounded-5">
+                    <div class="card-body">
                         <h5 class="card-title">{{ evento.fecha_inicio }}</h5>
                         <h6 class="card-title">{{ evento.segmento.all.0 }}</h6>
                         <p class="card-text">{{ evento.titulo }}</p>

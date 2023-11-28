@@ -1,5 +1,9 @@
 {% block content %}
 
+{% comment %}
+Filtro
+{% endcomment %}
+<hr>
 <div class="row p-0 m-0">
   <div class="col filtro">
     <form for="developer" class="p-3" action="{% url 'filtrarSegmento' %}" method="GET">
@@ -32,10 +36,15 @@
     </form>
   </div>
 </div>
+
+{% comment %}
+Tabla
+{% endcomment %}
+
 <div class="col p-0 ">
   <table class="table caption-top table-responsive table-hover">
-    <caption class="text-center tabletxt">Actividades</caption>
-    <thead class="table-dark">
+    <h2 class="text-center tabletxt">Actividades</h2>
+    <thead class="table">
       <tr>
         <th scope="col">Hito</th>
         <th scope="col">Fecha de inicio</th>
@@ -44,7 +53,7 @@
         <th scope="col">Segmento</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
         {% for evento in Eventos %} 
         {% if evento.fecha_inicio >= evento.fecha_actual or evento.fecha_termino >= evento.fecha_actual%}
           <tr>
